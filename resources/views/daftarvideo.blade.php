@@ -83,27 +83,34 @@
         @endif
 
         <div class="content">
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped" border="0">
                 <thead>
                     <tr>
-                        <th width="1%">File</th>
-                        <th>Judul</th>
-                        <th width="1%">OPSI</th>
+                        <th width="1%">Video</th>
+                        <th>Nama File</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($vid as $g)
+                    @foreach($video as $g)
                     <tr>
-                        <td><img width="150px" src="{{ url('/uploaded_files/'.$g->file) }}"></td>
+                        <td>
+                            <video width="320" height="240" controls>
+                                <source src="{{ url('/uploaded_files/'.$g->file) }}" type="video/mp4">
+                                <source src="{{ url('/uploaded_files/'.$g->file) }}" type="video/mpeg">
+                                <source src="{{ url('/uploaded_files/'.$g->file) }}" type="video/avi">
+                                <source src="{{ url('/uploaded_files/'.$g->file) }}" type="video/mkv">
+                                
+                                Your browser does not support the video tag.
+                            </video>
+                        </td>
                         <td>{{$g->judul}}</td>
-                        <td><a class="btn btn-danger" href="/upload/hapus/{{ $g->id }}">HAPUS</a></td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
             <br /><br />
             <div class="links">
-                <a href="/home">Kembali ke halaman awal</a>
+                <a href="/">Kembali ke halaman awal</a>
             </div>
         </div>
     </div>

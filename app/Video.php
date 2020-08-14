@@ -8,5 +8,5 @@ class Video extends Model
 {
     //
     protected $table = "videos";
-    protected $fillable = ['file, judul'];
+    protected $fillable = ['file', 'judul'];
 }

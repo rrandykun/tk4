@@ -9,8 +9,8 @@ use App\Video;
 class VideoController extends Controller
 {
     public function daftarvideo(){
-		$vid = Video::get();
-		return view('daftarvideo',['videos' => $vid]);
+        $vid = Video::get();
+        return view('daftarvideo',['video' => $vid]);
     }
     
     //proses upload video
@@ -52,8 +52,8 @@ class VideoController extends Controller
         $file->move($tujuan_upload, $nama_file);
 
         Video::create([
-            'file' => $nama_file,
             'judul' => $request->judul,
+            'file' => $nama_file,
         ]);
         
         echo "<h1 style='text-align:center'>Video sukses diunggah</h1>";

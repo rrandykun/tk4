@@ -68,20 +68,9 @@
 
 <body>
     <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
-        <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Home</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
 
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}">Register</a>
-            @endif
-            @endauth
-        </div>
-        @endif
-        <?php //echo ini_get('post_max_size'); ?>
+        <?php //echo ini_get('post_max_size'); 
+        ?>
         <div class="content">
             @if(count($errors) > 0)
             <div class="alert alert-danger">
@@ -93,7 +82,7 @@
             <br />
             <form action="/prosesunggah" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                Judul Video:
+                Nama File:
                 <br />
                 <input type="text" name="judul" />
                 <br /><br />
@@ -105,7 +94,8 @@
             </form>
             <br /><br />
             <div class="links">
-                <a href="/home">Kembali ke halaman awal</a>
+                <a href="/video">Lihat video</a>
+                <a href="/">Kembali ke halaman awal</a>
             </div>
 
         </div>

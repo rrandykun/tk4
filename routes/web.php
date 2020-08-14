@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::view('home', 'home');
+
+Route::view('/', 'home');
 Route::view('unggah', 'form_unggah');
 Route::get('video', 'VideoController@daftarvideo');
 Route::post('prosesunggah', 'VideoController@proses_upload');
